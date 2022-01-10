@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const pool = require("../config/db");
+const { getUrlByShortId, updateUrlVisitCount } = require("./urls/urls.service");
 
 // create database url_shortener
 router.get("/create-database", (req, res) => {
@@ -59,8 +60,9 @@ router.get("/create-table-urls", (req, res) => {
   try {
     const sql = `create table urls (
 		short_id VARCHAR(30) PRIMARY KEY NOT NULL,
-		long_url VARCHAR(45),
+		long_url VARCHAR(300),
 		uid INT,
+		visits INT,
 		created_date DATE,
 		FOREIGN KEY (uid) REFERENCES users(uid)
 		)`;
@@ -75,6 +77,35 @@ router.get("/create-table-urls", (req, res) => {
       return res.status(200).json({
         success: 1,
         msg: "New table 'url_shortener.urls' created!!!",
+      });
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ success: 0, msg: "Server error" });
+  }
+});
+
+// base_url/:short_id
+router.get("/:short_id", (req, res) => {
+  try {
+    const short_id = req.params.short_id;
+    getUrlByShortId(short_id, (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          msg: err.sqlMessage,
+        });
+      }
+      if (!result) {
+        return res.status(404).json({
+          success: 0,
+          msg: "No url found for the given short url",
+        });
+      }
+
+      updateUrlVisitCount(short_id, result.visits + 1, () => {
+        return res.redirect(result.long_url);
       });
     });
   } catch (error) {

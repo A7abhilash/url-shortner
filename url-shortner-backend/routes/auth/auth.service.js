@@ -15,11 +15,11 @@ module.exports = {
     );
   },
 
-  updateUser: (data, id, callback) => {
-    const sql = `update users set firstName=?, lastName=?, email=?, password=? where id=?`;
+  updateUser: (data, uid, callback) => {
+    const sql = `update users set firstName=?, lastName=?, email=?, password=? where uid=?`;
     pool.query(
       sql,
-      [data.firstName, data.lastName, data.email, data.password, id],
+      [data.firstName, data.lastName, data.email, data.password, uid],
       (err, result) => {
         if (err) {
           return callback(err);
@@ -29,8 +29,8 @@ module.exports = {
     );
   },
 
-  getUserById: (id, callback) => {
-    const sql = `select id, firstName, lastName, email, password from users where id=${id}`;
+  getUserById: (uid, callback) => {
+    const sql = `select uid, firstName, lastName, email, password from users where uid=${uid}`;
     pool.query(sql, (err, result) => {
       if (err) {
         return callback(err);
@@ -41,7 +41,7 @@ module.exports = {
   },
 
   getUserByEmail: (email, callback) => {
-    const sql = `select id, firstName, lastName, email, password from users where email="${email}"`;
+    const sql = `select uid, firstName, lastName, email, password from users where email="${email}"`;
     pool.query(sql, (err, result) => {
       if (err) {
         return callback(err);

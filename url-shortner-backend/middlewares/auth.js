@@ -24,8 +24,9 @@ module.exports = {
 
       //   console.log(payload.result);
 
-      getUserById(payload.result.id, (_err, result) => {
+      getUserById(payload.result.uid, (_err, result) => {
         if (_err) {
+          console.log(_err);
           return res.status(400).json({
             success: 0,
             msg: "DB Connection error!",
