@@ -86,12 +86,14 @@ router.post("/login", (req, res) => {
 
 // PATCH /update
 // Update an user details
-router.patch("/user/:id", ensureAuth, (req, res) => {
+router.patch("/user/:uid", ensureAuth, (req, res) => {
   // console.log(req.body);
   try {
-    const id = parseInt(req.params.id, 10);
+    const uid = parseInt(req.params.uid, 10);
 
-    if (id !== req.user.id) {
+    // console.log({ uid, _uid: req.user.uid });
+
+    if (uid !== req.user.uid) {
       return res.status(400).json({
         success: 0,
         msg: "Access denied, Unauthorized access!",
@@ -102,7 +104,7 @@ router.patch("/user/:id", ensureAuth, (req, res) => {
     const salt = genSaltSync(10);
     body.password = hashSync(body.password, salt);
 
-    updateUser(body, id, (err, result) => {
+    updateUser(body, uid, (err, result) => {
       if (err) {
         console.log(err);
         return res.status(500).json({

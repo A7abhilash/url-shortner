@@ -2,14 +2,16 @@ const pool = require("../../config/db");
 
 module.exports = {
   addShortUrl: (data, callback) => {
-    // console.log(data);
-    // return;
+    let created_date = `${new Date().getFullYear()}-${
+      new Date().getMonth() + 1
+    }-${new Date().getDate()}`;
+
     const sql = `insert into urls values(
 					"${data.short_id}",
 					"${data.long_url}",
 					${data.uid},
 					0,
-					${new Date().toLocaleDateString()}
+					"${created_date}"
 				)`;
 
     pool.query(sql, (err, results) => {
