@@ -5,6 +5,7 @@ require("dotenv").config({ path: "./misc/.env" });
 const app = express();
 
 // Body Parsers
+app.set("view engine", "ejs");
 app.use(express.json());
 app.use(cors());
 

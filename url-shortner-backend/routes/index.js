@@ -98,9 +98,12 @@ router.get("/:short_id", (req, res) => {
         });
       }
       if (!result) {
-        return res.status(404).json({
-          success: 0,
-          msg: "No url found for the given short url",
+        // return res.status(404).json({
+        //   success: 0,
+        //   msg: "No url found for the given short url",
+        // });
+        return res.render("404", {
+          errMsg: "No url found for the given short url",
         });
       }
 
