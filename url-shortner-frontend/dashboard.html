@@ -25,58 +25,108 @@
     </section>
 
     <section id="dashboard" hidden>
+      <nav class="bg-dark text-light p-2">
+        <h3 class="text-center">URL Shortener</h3>
+      </nav>
+
       <div class="container">
         <div class="row">
-          <div class="col-md-4 mx-2 mx-md-auto my-3 p-0 card">
-            <div class="card-header text-center">
-              <h4>Dashboard</h4>
-            </div>
-            <div class="card-body">
-              <form id="updateProfileForm">
-                <input
-                  type="text"
-                  class="form-control mb-3"
-                  name="firstName"
-                  placeholder="Enter your first name"
-                  required
-                />
-                <input
-                  type="text"
-                  class="form-control mb-3"
-                  name="lastName"
-                  placeholder="Enter your last name"
-                  required
-                />
-                <input
-                  type="email"
-                  class="form-control mb-3"
-                  name="email"
-                  placeholder="Enter your email"
-                  required
-                />
-                <input
-                  type="password"
-                  class="form-control mb-3"
-                  name="password"
-                  placeholder="Enter your password"
-                  required
-                />
-                <input
-                  type="password"
-                  class="form-control mb-3"
-                  name="c_password"
-                  placeholder="Confirm password"
-                  required
-                />
-                <button class="btn btn-sm btn-primary" type="submit">
-                  Update Profile
+          <div class="col-md-8 mx-2 mx-md-auto my-5">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="urls-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#urls"
+                  type="button"
+                  role="tab"
+                  aria-controls="urls"
+                  aria-selected="true"
+                >
+                  Dashboard
                 </button>
-              </form>
-            </div>
-            <div class="card-footer">
-              <button class="btn btn-sm btn-danger" id="logoutBtn">
-                Logout
-              </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="profile-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#profile"
+                  type="button"
+                  role="tab"
+                  aria-controls="profile"
+                  aria-selected="false"
+                >
+                  Profile
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div
+                class="tab-pane fade show active p-3"
+                id="urls"
+                role="tabpanel"
+                aria-labelledby="urls-tab"
+              >
+                <h3>Create urls</h3>
+              </div>
+              <div
+                class="tab-pane fade p-3"
+                id="profile"
+                role="tabpanel"
+                aria-labelledby="profile-tab"
+              >
+                <div class="card col-md-8 p-0">
+                  <div class="card-body">
+                    <form id="updateProfileForm">
+                      <input
+                        type="text"
+                        class="form-control mb-3"
+                        name="firstName"
+                        placeholder="Enter your first name"
+                        required
+                      />
+                      <input
+                        type="text"
+                        class="form-control mb-3"
+                        name="lastName"
+                        placeholder="Enter your last name"
+                        required
+                      />
+                      <input
+                        type="email"
+                        class="form-control mb-3"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                      />
+                      <input
+                        type="password"
+                        class="form-control mb-3"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                      />
+                      <input
+                        type="password"
+                        class="form-control mb-3"
+                        name="c_password"
+                        placeholder="Confirm password"
+                        required
+                      />
+                      <button class="btn btn-sm btn-primary" type="submit">
+                        Update Profile
+                      </button>
+                    </form>
+                  </div>
+                  <div class="card-footer">
+                    <button class="btn btn-sm btn-danger" id="logoutBtn">
+                      Logout
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

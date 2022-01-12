@@ -22,7 +22,7 @@ window.addEventListener("load", async () => {
   // console.log(token);
 
   if (token) {
-    const res = await fetch(BACKEND_URL + "/dashboard", {
+    const res = await fetch(BACKEND_URL + "/urls", {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
