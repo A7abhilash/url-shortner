@@ -23,7 +23,7 @@ updateProfileForm.addEventListener("submit", async (event) => {
   console.log({ firstName, lastName, email, password });
   let token = localStorage.getItem("accessToken");
 
-  const res = await fetch(BACKEND_URL + "/user/" + LOGGED_IN_USER.id, {
+  const res = await fetch(BACKEND_URL + "/user/" + LOGGED_IN_USER.uid, {
     method: "PATCH",
     headers: {
       Authorization: `Bearer ${token}`,
