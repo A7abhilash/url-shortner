@@ -140,7 +140,7 @@ const getUrlListChild = (url, index) =>
     <td>${index + 1}</td>
     <td style="max-width:200px;">
       <a
-        href="http://localhost:5000/${url.short_id}"
+        href="${BACKEND_URL}/${url.short_id}"
         class="text-info text-decoration-none"
         target="_blank"
         rel="noreferrer noopener"
