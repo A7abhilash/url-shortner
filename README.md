@@ -19,22 +19,22 @@ A simple application to shorten long urls with custom short id.
 
 <div>
 <img
-src="screenshots/US-1.png"
+src="screenshots/US-01.png"
 alt="Login/Register"
 style="border-radius:5px;"
 />
 <img
-src="screenshots/US-2.png"
+src="screenshots/US-02.png"
 alt="Dashboard"
 style="border-radius:5px;"
 />
 <img
-src="screenshots/US-3.png"
+src="screenshots/US-03.png"
 alt="Dashboard"
 style="border-radius:5px;"
 />
 <img
-src="screenshots/US-4.png"
+src="screenshots/US-04.png"
 alt="Profile"
 style="border-radius:5px;"
 />
